@@ -15,6 +15,11 @@ func Provider() *schema.Provider {
 				Required:    true,
 				DefaultFunc: schema.EnvDefaultFunc("UPTIME_TOKEN", nil),
 			},
+			"rate_limit_ms": {
+				Type: schema.TypeInt,
+				Required: true,
+				DefaultFunc: schema.EnvDefaultFunc("UPTIME_RATE_LIMIT_MS", 500),
+			},
 		},
 		ResourcesMap: map[string]*schema.Resource{
 			"uptime_tag": resourceUptimeCheckTag(),
@@ -33,7 +38,7 @@ func Provider() *schema.Provider {
 func configureProvider(data *schema.ResourceData) (interface{}, error) {
 	c := Config{
 		Token: data.Get("token").(string),
-		RateMilliseconds: 500,
+		RateMilliseconds: data.Get("rate_limit_ms").(int),
 	}
 
 	log.Println("[INFO] Initializing Uptime client")
