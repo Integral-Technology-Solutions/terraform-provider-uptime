@@ -4,10 +4,17 @@
 * Go v1.12 or higher
 
 ## Installation
+### Configuring Git to use SSH instead of HTTPS
+`go get` uses `git` internally. This means we need to chagne the git configuration to make go happy and also be able to pull new versions of packages. Run the following command to get git to use SSH instead of HTTPS
+
+```bash
+git config --global url."git@bitbucket.org:".insteadOf "https://bitbucket.org/"
+```
+
 ### Downloading the provider
 First, install the provider to your local machine:
-```
-go get -u -v github.com/uptime-com/terraform-provider-uptime
+```bash
+go get -u -v bitbucket.org/integraltech/terraform-provider-uptime
 ```
 
 ### Installing
