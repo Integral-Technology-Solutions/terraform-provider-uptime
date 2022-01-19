@@ -13,7 +13,7 @@ go get -u -v github.com/uptime-com/terraform-provider-uptime
 ### Installing
 In order for Terraform to use terraform-provider-uptime, it needs to be linked to the plugin directory. Example commands for an OS X Darwin machine:
 
-```
+```bash
 mkdir -p ~/.terraform.d/plugins/integral.com.au/local/uptime/1.0.1/darwin_amd64/
 
 ln -s ~/go/bin/terraform-provider-uptime \
@@ -23,7 +23,7 @@ ln -s ~/go/bin/terraform-provider-uptime \
 For Linux machines, follow the OS X process, replacing `darwin` with `linux`.
 
 For a Windows machine, in PowerShell:
-```
+```powershell
 New-Item %APPDATA%\terraform.d\plugins\windows_amd64 -Type 'directory' -Force
 cmd /c mklink /d $env:GOPATH\bin\terraform-provider-uptime %APPDATA%\terraform.d\plugins\windows_amd64\terraform-provider-uptime
 ```
@@ -34,7 +34,7 @@ cmd /c mklink /d $env:GOPATH\bin\terraform-provider-uptime %APPDATA%\terraform.d
 #### uptime\_check\_ntp
 Example:
 
-```
+```go
 resource "uptime_check_ntp" "google" {
     name = "Google Public NTP"
     address = "time.google.com"
