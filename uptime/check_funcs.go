@@ -53,7 +53,6 @@ func checkBuildFunc(ct CheckType) (func (d *schema.ResourceData) *uptime.Check) 
 	return func(d *schema.ResourceData) *uptime.Check {
 		check := &uptime.Check{
 			CheckType: ct.typeStr(),
-			Address: d.Get("address").(string),
 			ContactGroups: expandSetAttr(d.Get("contact_groups")),
 		}
 
