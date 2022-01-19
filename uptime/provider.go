@@ -30,6 +30,7 @@ func Provider() *schema.Provider {
 			"uptime_check_ntp": resourceUptimeCheckNTP(),
 			"uptime_check_ssl_cert": resourceUptimeCheckSSLCert(),
 			"uptime_check_whois": resourceUptimeCheckWhois(),
+			"uptime_check_heartbeat": resourceUptimeCheckHeartbeat(),
 		},
 		ConfigureFunc: configureProvider,
 	}
