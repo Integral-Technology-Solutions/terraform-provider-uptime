@@ -45,7 +45,6 @@ func resourceUptimeCheckHeartbeat() *schema.Resource {
 			"include_in_global_metrics": {
 				Type: schema.TypeBool,
 				Optional: true,
-				Computed: true,
 			},
 			"is_paused": {
 				Type: schema.TypeBool,
