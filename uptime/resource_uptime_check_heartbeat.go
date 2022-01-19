@@ -7,10 +7,10 @@ import (
 
 func resourceUptimeCheckHeartbeat() *schema.Resource {
 	return &schema.Resource{
-		Create: checkCreateFunc(httpCheck),
-		Read: checkReadFunc(httpCheck),
-		Update: checkUpdateFunc(httpCheck),
-		Delete: checkDeleteFunc(httpCheck),
+		Create: checkCreateFunc(heartbeatCheck),
+		Read: checkReadFunc(heartbeatCheck),
+		Update: checkUpdateFunc(heartbeatCheck),
+		Delete: checkDeleteFunc(heartbeatCheck),
 		Importer: &schema.ResourceImporter{
 			State: schema.ImportStatePassthrough,
 		},
