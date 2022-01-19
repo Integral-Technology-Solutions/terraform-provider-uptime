@@ -4,5 +4,5 @@ go 1.12
 
 require (
 	github.com/hashicorp/terraform v0.12.0
-	github.com/uptime-com/rest-api-clients/golang v1.0.0
+	bitbucket.org/integraltech/uptime-rest-api-clients/golang v1.0.0
 )

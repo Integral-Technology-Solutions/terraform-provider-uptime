@@ -8,7 +8,7 @@ import (
 
 	"github.com/hashicorp/terraform/helper/logging"
 	"github.com/hashicorp/terraform/terraform"
-	uptime "github.com/uptime-com/rest-api-clients/golang/uptime"
+	uptime "bitbucket.org/integraltech/uptime-rest-api-clients/golang/uptime"
 )
 
 // Config defines configuration options for the Uptime.com client
