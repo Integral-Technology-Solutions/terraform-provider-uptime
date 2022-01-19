@@ -21,7 +21,8 @@ type Config struct {
 const badCredentials = `
 
 No credentials found for Uptime.com provider.
-Please provide an API token in the provider block.
+Please provide an API token in the provider block or as an environment
+variable.
 `
 
 func (c *Config) Client() (*uptime.Client, error) {
