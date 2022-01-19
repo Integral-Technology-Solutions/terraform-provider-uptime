@@ -58,11 +58,11 @@ func resourceUptimeCheckHeartbeat() *schema.Resource {
 				Default: "Managed by Terraform",
 			},
 			"uptime_sla": {
-				Type: schema.TypeInt,
+				Type: schema.TypeFloat,
 				Optional: true,
 			},
 			"response_time_sla": {
-				Type: schema.TypeInt,
+				Type: schema.TypeFloat,
 				Optional: true,
 			},
 		},
