@@ -11,6 +11,11 @@
 git config --global url."git@bitbucket.org:".insteadOf "https://bitbucket.org/"
 ```
 
+### Allowing Private Repo Packages from Bitbucket
+```bash
+export GOPRIVATE=bitbucket.org
+```
+
 ### Downloading the provider
 First, install the provider to your local machine:
 ```bash
