@@ -67,3 +67,20 @@ func resourceUptimeCheckHeartbeat() *schema.Resource {
 		},
 	}
 }
+
+// HeartbeatCheck implements the CheckType interface for Uptime.com Heartbeat checks.
+type HeartbeatCheck struct{}
+
+func (HeartbeatCheck) typeStr() string {return "Heartbeat"}
+
+func (HeartbeatCheck) getSpecificAttrs(d *schema.ResourceData, c *uptime.Check) {
+	if attr, ok := d.GetOk("interval"); ok {
+		c.Interval = attr.(int)
+	}
+}
+
+func (HeartbeatCheck) setSpecificAttrs(d *schema.ResourceData, c *uptime.Check) {
+	d.Set("interval", c.Interval)
+}
+
+var heartbeatCheck HeartbeatCheck
