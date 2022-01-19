@@ -14,8 +14,13 @@ go get -u -v github.com/uptime-com/terraform-provider-uptime
 In order for Terraform to use terraform-provider-uptime, it needs to be linked to the plugin directory. Example commands for an OS X Darwin machine:
 
 ```bash
+# Build
+go build -o ~/go/bin/terraform-provider-uptime
+
+# Create plugin location
 mkdir -p ~/.terraform.d/plugins/integral.com.au/local/uptime/1.0.1/darwin_amd64/
 
+# Symlink with executable
 ln -s ~/go/bin/terraform-provider-uptime \
     ~/.terraform.d/plugins/integral.com.au/local/uptime/1.0.1/darwin_amd64/terraform-provider-uptime
 ```
