@@ -9,7 +9,7 @@
 2. Allow Go to use private repo packages from Bitbucket
 3. Build the project
 4. Create location in terraform directory for plugin
-5. Symlink executible
+5. Symlink executable
 
 ```bash
 # 1 Use SSH instead of HTTPS
