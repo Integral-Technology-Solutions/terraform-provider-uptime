@@ -1,5 +1,15 @@
+bitbucket.org/integraltech/uptime-rest-api-clients v0.0.0-20220130233731-bbdbdb95049a h1:AE6vZaN5xkrAfx11Ul4dzXmlV5geEBKAn5gYvysB2N0=
+bitbucket.org/integraltech/uptime-rest-api-clients v0.0.0-20220130233731-bbdbdb95049a/go.mod h1:qjF4MdaYk9nPukPEd3UlhnTRrGRrA1G3GHLDfBj/pCo=
 bitbucket.org/integraltech/uptime-rest-api-clients/golang v1.1.1 h1:5bQsww7MijmCR28WeQYMy2gl3XHirj+SI2Tkaz9caSI=
 bitbucket.org/integraltech/uptime-rest-api-clients/golang v1.1.1/go.mod h1:slyH406e9w7lZXos30SScEBtqF9k6Xs4Zv8QUg1FVek=
+bitbucket.org/integraltech/uptime-rest-api-clients/golang v1.2.0 h1:+bu4uoH2FMx6I+iwuEIoIHmKo0oW5DDqXzzMFDG5Nq8=
+bitbucket.org/integraltech/uptime-rest-api-clients/golang v1.2.0/go.mod h1:XSx1PSF5ZRKRdm1jjD8uYq+ANjLJNmUWXwF0fL3TYBk=
+bitbucket.org/integraltech/uptime-rest-api-clients/golang v1.2.1 h1:3qk/cuyE0FRxtiUFLEfLGvhxuqnDe7ppHrFRWFLfu2U=
+bitbucket.org/integraltech/uptime-rest-api-clients/golang v1.2.1/go.mod h1:XSx1PSF5ZRKRdm1jjD8uYq+ANjLJNmUWXwF0fL3TYBk=
+bitbucket.org/integraltech/uptime-rest-api-clients/golang v1.2.2 h1:vPhiWH6JmSS9C3hdDiKb7v3vRUzX5rOZkMuEViWABQc=
+bitbucket.org/integraltech/uptime-rest-api-clients/golang v1.2.2/go.mod h1:XSx1PSF5ZRKRdm1jjD8uYq+ANjLJNmUWXwF0fL3TYBk=
+bitbucket.org/integraltech/uptime-rest-api-clients/golang v1.2.3 h1:3xA8ezVPaxgxfn3r3XPKAMiXAU7X6EkQ4Ab/lMWDQXk=
+bitbucket.org/integraltech/uptime-rest-api-clients/golang v1.2.3/go.mod h1:XSx1PSF5ZRKRdm1jjD8uYq+ANjLJNmUWXwF0fL3TYBk=
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 cloud.google.com/go v0.31.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 cloud.google.com/go v0.34.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
