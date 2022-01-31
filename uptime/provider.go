@@ -31,6 +31,7 @@ func Provider() *schema.Provider {
 			"uptime_check_ssl_cert": resourceUptimeCheckSSLCert(),
 			"uptime_check_whois": resourceUptimeCheckWhois(),
 			"uptime_check_heartbeat": resourceUptimeCheckHeartbeat(),
+			"uptime_integration_opsgenie": resourceUptimeIntegrationOpsgenie(),
 		},
 		ConfigureFunc: configureProvider,
 	}
