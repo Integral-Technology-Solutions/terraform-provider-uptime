@@ -12,13 +12,13 @@
 5. Symlink executable
 
 ```bash
-# 1 Use SSH instead of HTTPS
+# 1. Use SSH instead of HTTPS
 git config --global url."git@bitbucket.org:".insteadOf "https://bitbucket.org/"
 
-# 2 Use private repo
+# 2. Use private repo
 export GOPRIVATE=bitbucket.org
 
-# 3 Build
+# 3. Build
 go build -o ~/go/bin/terraform-provider-uptime
 
 # 4. Create destination for executable
