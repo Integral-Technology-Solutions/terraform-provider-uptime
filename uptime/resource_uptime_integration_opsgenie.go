@@ -6,14 +6,14 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/hashicorp/terraform/helper/schema"
 	uptime "bitbucket.org/integraltech/uptime-rest-api-clients/golang/uptime"
+	"github.com/hashicorp/terraform/helper/schema"
 )
 
 func resourceUptimeIntegrationOpsgenie() *schema.Resource {
 	return &schema.Resource{
 		Create: resourceUptimeIntegrationOpsgenieCreate,
-		Read: resourceUptimeIntegrationOpsgenieRead,
+		Read:   resourceUptimeIntegrationOpsgenieRead,
 		Update: resourceUptimeIntegrationOpsgenieUpdate,
 		Delete: resourceUptimeIntegrationOpsgenieDelete,
 		Importer: &schema.ResourceImporter{
@@ -21,50 +21,50 @@ func resourceUptimeIntegrationOpsgenie() *schema.Resource {
 		},
 		Schema: map[string]*schema.Schema{
 			"name": {
-				Type: schema.TypeString,
+				Type:     schema.TypeString,
 				Required: true,
 			},
 			"contact_groups": {
-				Type: schema.TypeSet,
+				Type:     schema.TypeSet,
 				Required: true,
 				Elem: &schema.Schema{
 					Type: schema.TypeString,
 				},
 			},
 			"api_endpoint": {
-				Type: schema.TypeString,
+				Type:     schema.TypeString,
 				Required: true,
 			},
 			"api_key": {
-				Type: schema.TypeString,
+				Type:     schema.TypeString,
 				Required: true,
 			},
 			"teams": {
-				Type: schema.TypeString,
+				Type:     schema.TypeString,
 				Optional: true,
 			},
 			"tags": {
-				Type: schema.TypeString,
+				Type:     schema.TypeString,
 				Optional: true,
 			},
 			"autoresolve": {
-				Type: schema.TypeBool,
+				Type:     schema.TypeBool,
 				Optional: true,
 			},
 		},
 	}
 }
 
-func buildUptimeIntegrationOpsgenie(d *schema.ResourceData) (*uptime.Integration) {
+func buildUptimeIntegrationOpsgenie(d *schema.ResourceData) *uptime.Integration {
 	integrationOpsgenie := &uptime.Integration{
-		Module: "Opsgenie",
-		Name: d.Get("name").(string),
+		Module:        "Opsgenie",
+		Name:          d.Get("name").(string),
 		ContactGroups: expandSetAttr(d.Get("contact_groups")),
-		APIEndpoint: d.Get("api_endpoint").(string),
-		APIKey: d.Get("api_key").(string),
-		Teams: d.Get("teams").(string),
-		Tags: d.Get("tags").(string),
-		AutoResolve: d.Get("autoresolve").(bool),
+		APIEndpoint:   d.Get("api_endpoint").(string),
+		APIKey:        d.Get("api_key").(string),
+		Teams:         d.Get("teams").(string),
+		Tags:          d.Get("tags").(string),
+		AutoResolve:   d.Get("autoresolve").(bool),
 	}
 	return integrationOpsgenie
 }
