@@ -43,6 +43,8 @@ func resourceUptimeIntegrationOpsgenie() *schema.Resource {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
+			// note: these tags are added to the alert, not the integration.
+			// Hence the string type instead of a set of strings as usual.
 			"tags": {
 				Type:     schema.TypeString,
 				Optional: true,
@@ -55,6 +57,7 @@ func resourceUptimeIntegrationOpsgenie() *schema.Resource {
 	}
 }
 
+// Build integration struct from property values
 func buildUptimeIntegrationOpsgenie(d *schema.ResourceData) *uptime.Integration {
 	integrationOpsgenie := &uptime.Integration{
 		Module:        "Opsgenie",
@@ -69,6 +72,7 @@ func buildUptimeIntegrationOpsgenie(d *schema.ResourceData) *uptime.Integration 
 	return integrationOpsgenie
 }
 
+// Create Opsgenie integration resource
 func resourceUptimeIntegrationOpsgenieCreate(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*uptime.Client)
 	ctx := context.Background()
@@ -85,6 +89,7 @@ func resourceUptimeIntegrationOpsgenieCreate(d *schema.ResourceData, meta interf
 	return resourceUptimeIntegrationOpsgenieRead(d, meta)
 }
 
+// Read Opsgenie integration resource
 func resourceUptimeIntegrationOpsgenieRead(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*uptime.Client)
 	ctx := context.Background()
@@ -111,10 +116,11 @@ func resourceUptimeIntegrationOpsgenieRead(d *schema.ResourceData, meta interfac
 	d.Set("teams", t.Teams)
 	d.Set("tags", t.Tags)
 	d.Set("autoresolve", t.AutoResolve)
-	d.Set("url", t.URL)
+	d.Set("url", t.URL) // computed by server
 	return nil
 }
 
+// Update Opsgenie integration resource
 func resourceUptimeIntegrationOpsgenieUpdate(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*uptime.Client)
 	ctx := context.Background()
@@ -135,6 +141,7 @@ func resourceUptimeIntegrationOpsgenieUpdate(d *schema.ResourceData, meta interf
 	return resourceUptimeIntegrationOpsgenieRead(d, meta)
 }
 
+// Delete Opsgenie integration resource
 func resourceUptimeIntegrationOpsgenieDelete(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*uptime.Client)
 	ctx := context.Background()
@@ -150,6 +157,7 @@ func resourceUptimeIntegrationOpsgenieDelete(d *schema.ResourceData, meta interf
 	return nil
 }
 
+// Parse in primary key to use as resource id
 func setResourceIDFromIntegrationOpsgenie(d *schema.ResourceData, t *uptime.Integration) {
 	id := strconv.Itoa(t.PK)
 	d.SetId(id)
