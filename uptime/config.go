@@ -6,15 +6,15 @@ import (
 	"net/http"
 	"runtime"
 
+	uptime "bitbucket.org/integraltech/uptime-rest-api-clients/golang/uptime"
 	"github.com/hashicorp/terraform/helper/logging"
 	"github.com/hashicorp/terraform/terraform"
-	uptime "bitbucket.org/integraltech/uptime-rest-api-clients/golang/uptime"
 )
 
 // Config defines configuration options for the Uptime.com client
 type Config struct {
 	// Uptime.com API token
-	Token string
+	Token            string
 	RateMilliseconds int
 }
 
@@ -35,9 +35,9 @@ func (c *Config) Client() (*uptime.Client, error) {
 	httpClient.Transport = logging.NewTransport("Uptime.com", http.DefaultTransport)
 
 	config := &uptime.Config{
-		HTTPClient: httpClient,
-		Token: c.Token,
-		UserAgent: fmt.Sprintf("(%s %s) Terraform/%s", runtime.GOOS, runtime.GOARCH, terraform.VersionString()),
+		HTTPClient:       httpClient,
+		Token:            c.Token,
+		UserAgent:        fmt.Sprintf("(%s %s) Terraform/%s", runtime.GOOS, runtime.GOARCH, terraform.VersionString()),
 		RateMilliseconds: c.RateMilliseconds,
 	}
 
