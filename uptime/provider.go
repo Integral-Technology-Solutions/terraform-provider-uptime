@@ -1,9 +1,11 @@
 package uptime
 
 import (
+	"context"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"log"
 
-	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 // Provider represents a resource provider in Terraform
@@ -33,16 +35,22 @@ func Provider() *schema.Provider {
 			"uptime_check_heartbeat":        resourceUptimeCheckHeartbeat(),
 			"uptime_integration_opsgenie":   resourceUptimeIntegrationOpsgenie(),
 		},
-		ConfigureFunc: configureProvider,
+		ConfigureContextFunc: providerConfigure,
 	}
 }
 
-func configureProvider(data *schema.ResourceData) (interface{}, error) {
+func providerConfigure(ctx context.Context, data *schema.ResourceData) (interface{}, diag.Diagnostics) {
 	c := Config{
 		Token:            data.Get("token").(string),
 		RateMilliseconds: data.Get("rate_limit_ms").(int),
 	}
 
 	log.Println("[INFO] Initializing Uptime client")
-	return c.Client()
+
+	cli, err := c.Client()
+	if err != nil {
+		return nil, diag.FromErr(err)
+	}
+
+	return cli, nil
 }

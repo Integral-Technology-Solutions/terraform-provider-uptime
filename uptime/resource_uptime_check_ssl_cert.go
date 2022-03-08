@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	uptime "bitbucket.org/integraltech/uptime-rest-api-clients/golang/uptime"
-	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 func resourceUptimeCheckSSLCert() *schema.Resource {

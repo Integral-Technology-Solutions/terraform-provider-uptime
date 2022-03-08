@@ -4,11 +4,9 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"runtime"
 
 	uptime "bitbucket.org/integraltech/uptime-rest-api-clients/golang/uptime"
-	"github.com/hashicorp/terraform/helper/logging"
-	"github.com/hashicorp/terraform/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/logging"
 )
 
 // Config defines configuration options for the Uptime.com client
@@ -37,7 +35,6 @@ func (c *Config) Client() (*uptime.Client, error) {
 	config := &uptime.Config{
 		HTTPClient:       httpClient,
 		Token:            c.Token,
-		UserAgent:        fmt.Sprintf("(%s %s) Terraform/%s", runtime.GOOS, runtime.GOARCH, terraform.VersionString()),
 		RateMilliseconds: c.RateMilliseconds,
 	}
 
