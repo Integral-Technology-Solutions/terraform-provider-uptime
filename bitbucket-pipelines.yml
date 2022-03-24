@@ -1,0 +1,11 @@
+image: atlassian/default-image:latest
+
+pipelines:
+  branches:
+    public:
+      - step:
+          script:
+          - git remote add sync git@github.com:Integral-Technology-Solutions/rest-api-clients.git
+          - git checkout $BITBUCKET_BRANCH
+          - git pull
+          - git push sync $BITBUCKET_BRANCH
